@@ -3,10 +3,10 @@
 # 100 -> 1 (1 + 0 + 0)
 
 number = int(input("Введите число: "))
-sum = 0
+summa = 0
 
 while number > 0:
     temp = number % 10
-    sum += temp
+    summa += temp
     number //= 10
-print(sum)
+print(summa)
