@@ -9,19 +9,23 @@ number = int(input("Введите 6-значное число: "))
 sum1 = 0
 sum2 = 0
 
-part1 = number // 1000
-while part1 > 0:
-    temp1 = part1 % 10
-    sum1 += temp1
-    part1 //= 10
+if 99999 < number < 1000000:
 
-part2 = number % 1000
-while part2 > 0:
-    temp2 = part2 % 10
-    sum2 += temp2
-    part2 //= 10
+    part1 = number // 1000
+    while part1 > 0:
+        temp1 = part1 % 10
+        sum1 += temp1
+        part1 //= 10
 
-if sum1 == sum2:
-    print(f"Билет с номером {number} счастливый.")
+    part2 = number % 1000
+    while part2 > 0:
+        temp2 = part2 % 10
+        sum2 += temp2
+        part2 //= 10
+
+    if sum1 == sum2:
+        print(f"Билет с номером {number} счастливый.")
+    else:
+        print(f"Билет с номером {number} не счастливый.")
 else:
-    print(f"Билет с номером {number} не счастливый.")
+    print("Введено не 6-значное число.")
