@@ -16,13 +16,13 @@ if n > 0:
         coins.append(coin)
 
     orel = 0
-    reshka = 0
-    for coin in coins:
-        if coin == 1:
+    reshka = 0                   # 2nd argument & the whole cycle can be replaced with:
+    for coin in coins:           # orel = coins.count(0)
+        if coin == 1:            # reshka = len(coins) - orel
             orel += 1
         else:
             reshka += 1
-
+    
     if orel > reshka:
         print(f'Лучше перевернуть решку {reshka} -> {coins}')
     elif orel == reshka:
