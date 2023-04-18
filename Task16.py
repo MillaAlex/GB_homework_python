@@ -17,7 +17,8 @@ for i in range(n):
     number = random.randint(0, 10)
     list_numbers.append(number)
 print(list_numbers)
-for i in range(0, len(list_numbers)):
-    if list_numbers[i] == x:
+
+for i in list_numbers:
+    if i == x:
         count += 1
 print(f"Число {x} -> {count} раз(а)")
