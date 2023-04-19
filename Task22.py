@@ -27,4 +27,4 @@ for i in range(m):
 print(collection2)
 
 collection_union = collection1.union(collection2)
-print(collection_union)
+print(sorted(collection_union))
