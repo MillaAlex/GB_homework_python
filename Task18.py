@@ -17,10 +17,32 @@ for i in range(n):
     number = random.randint(0, 10)
     list_numbers.append(number)
 print(list_numbers)
-for i in range(0, len(list_numbers)):
-    if list_numbers[i] == x:
-        print(f"Число {list_numbers[i]} самое близкое к x = {x}")
-        break
-    elif (list_numbers[i] == x + 1) or (list_numbers[i] == x - 1):
-        print(f"Число {list_numbers[i]} самое близкое к x = {x}")
-        break
+
+count = 1
+flag = False
+while flag is False:      # while not flag:
+    if x in list_numbers:
+        print(f"Число {x} самое близкое к x = {x}")
+        flag = True
+    elif x - count in list_numbers and x + count in list_numbers:
+        print(f"Число {x - count} & {x + count} самое близкое к x = {x}")
+        flag = True
+    elif x - count in list_numbers:
+        print(f"Число {x - count} самое близкое к x = {x}")
+        flag = True
+    elif x + count in list_numbers:
+        print(f"Число {x + count} самое близкое к x = {x}")
+        flag = True
+    count += 1
+
+
+
+# via def
+def nearest_value(list_numbers, x):
+    found = list_numbers[0]        
+    for number in list_numbers:      
+        if abs(number - x) < abs(found - x):
+            found = number 
+    return found 
+ 
+print(f'Ближайшее число к {x} в списке {list_numbers} является {nearest_value(list_numbers, x)}')
