@@ -7,7 +7,7 @@ def find_indexes():
     my_list = [-5, 9, 0, 3, -1, -2, 1, 4, -2, 10, 2, 0, -9, 8, 10, -9, 0, -5, -5, 7]
     result_list = []
     for i in range(len(my_list)):
-        if my_list[i] > min_value and my_list[i] < max_value:
+        if my_list[i] >= min_value and my_list[i] <= max_value:
             result_list.append(i)
     return result_list
 
