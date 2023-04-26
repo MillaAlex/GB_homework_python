@@ -4,8 +4,8 @@
 # A = 2; B = 3 -> 8
 
 def num_degree(a, b):
-    if b == 1:
-        return a
+    if b == 0:
+        return 1
     return a * num_degree(a, b - 1)
 a = int(input("Введите число А: "))
 b = int(input("Введите число B (степень): "))
