@@ -15,13 +15,13 @@
 vinnis_poem = input("Введите стихотворение Винни-Пуха: ")
 poem = vinnis_poem.split()
 
-vowels = ['а', 'е', 'и', 'о', 'у', 'ы','э', 'ю', 'я']
-
+vowels = 'аеиоуыэюя'
+count = 0
 for i in poem:
-    count = 0
     for j in i:
         if j in vowels:
             count +=1
+#print(count)
 if count % 2 == 0:
     print('Парам пам-пам')
 else:
@@ -33,9 +33,8 @@ else:
 vinnis_poem = input("Введите стихотворение Винни-Пуха: ")
 poem = vinnis_poem.split()
 
-vowels = ['а', 'е', 'и', 'о', 'у', 'ы','э', 'ю', 'я']
-
 def rythm(poem):
+    vowels = 'аеиоуыэюя'
     check_vowel = lambda x: sum(1 for i in x if i in vowels)
     temp = check_vowel(poem[0])
     if all([check_vowel(i) == temp and temp % 2 == 0 for i in poem]):
