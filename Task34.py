@@ -21,7 +21,6 @@ for i in poem:
     for j in i:
         if j in vowels:
             count +=1
-#print(count)
 if count % 2 == 0:
     print('Парам пам-пам')
 else:
