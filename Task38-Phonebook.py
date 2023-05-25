@@ -34,11 +34,11 @@ def print_all(f):
 
 
 def search_contact(f):
-    lastname = input('Введите фамилию или имя для поиска: ')
+    lastname = input('Введите фамилию или имя для поиска: ').capitalize() 
     adr_book = read_all(f)
     for line in adr_book:
-        if lastname in line:
-            print(line)
+        if lastname in line: print(line)
+    if lastname not in adr_book: print('Запись не найдена.')
 
 
 def change_data(f):
@@ -47,35 +47,33 @@ def change_data(f):
     for i in range(len(adr_book)):
         print(i, adr_book[i])
     idx = int(input('Введите индекс контакта для замены: '))
-    for idx in adr_book:
-        while True:
-            user_changes = input('Выберите: \n1 - изменить фамилию,\n2 - изменить телефон,\n'
-                                'Имя изменить нельзя.\n3 - удалить запись, \nq - для перехода в главное меню. \n')
-            if user_changes == '1':
-                name, phone = adr_book[i].split('; ')[1:]
-                lastname = input('Введите новую фамилию: ')
-                new_record = f'{lastname}; {name}; {phone}'
-                adr_book[i] = new_record
-                with open(f, 'w', encoding='utf-8') as fd:
-                    fd.writelines(adr_book)
-                print('Запись успешно изменена.')
-            elif user_changes == '2':
-                lastname, name = adr_book[i].split('; ')[:2]
-                phone = input('Введите новый телефон: ')
-                new_record = f'{lastname}; {name}; {phone}'
-                adr_book[i] = new_record
-                with open(f, 'w', encoding='utf-8') as fd:
-                    fd.writelines(adr_book)
-                print('Запись успешно изменена.')
-            elif user_changes == '3':
-                new_record = ''
-                adr_book[i] = new_record
-                with open(f, 'w', encoding='utf-8') as fd:
-                    fd.writelines(adr_book)
-                print('Запись успешно удалена.')
-            elif user_changes == 'q':
-                print('Выход из подменю выполнен.')
-            main()
+    while True:
+        user_changes = input('Выберите: \n1 - изменить фамилию,\n2 - изменить телефон,\n'
+                            'Имя изменить нельзя.\n3 - удалить запись, \nq - для перехода в главное меню. \n')
+        if user_changes == '1':
+            name, phone = adr_book[idx].split('; ')[1:]
+            lastname = input('Введите новую фамилию: ')
+            new_record = f'{lastname}; {name}; {phone}'
+            adr_book[idx] = new_record
+            with open(f, 'w', encoding='utf-8') as fd:
+                fd.writelines(adr_book)
+            print('Запись успешно изменена.')
+        elif user_changes == '2':
+            lastname, name = adr_book[idx].split('; ')[:2]
+            phone = input('Введите новый телефон: ')
+            new_record = f'{lastname}; {name}; {phone}'
+            adr_book[idx] = new_record
+            with open(f, 'w', encoding='utf-8') as fd:
+                fd.writelines(adr_book)
+            print('Запись успешно изменена.')
+        elif user_changes == '3':
+            new_record = ''
+            adr_book[idx] = new_record
+            with open(f, 'w', encoding='utf-8') as fd:
+                fd.writelines(adr_book)
+            print('Запись успешно удалена.')
+        elif user_changes == 'q':
+            print('Выход из подменю выполнен.')
             break
 
 
