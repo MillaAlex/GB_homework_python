@@ -36,10 +36,16 @@ def print_all(f):
 def search_contact(f):
     lastname = input('Введите фамилию или имя для поиска: ').capitalize() 
     adr_book = read_all(f)
+    find_record = []
     for line in adr_book:
-        if lastname in line: print(line)
-    if lastname not in adr_book: print('Запись не найдена.')
-
+        if lastname in line:
+            find_record.append(line)
+    if find_record is None:
+        print('Запись не найдена.')
+    else:
+        for find_line in find_record:
+            print(find_line)
+        
 
 def change_data(f):
     adr_book = read_all(f)
