@@ -40,7 +40,7 @@ def search_contact(f):
     for line in adr_book:
         if lastname in line:
             find_record.append(line)
-    if find_record is None:
+    if len(find_record) == 0:
         print('Запись не найдена.')
     else:
         for find_line in find_record:
