@@ -14,11 +14,10 @@ print(data.head())
 print(data.shape)
 
 
-# NaN / 1.0 / 0.0:
-data.loc[data['whoAmI'] == 'human', 'human'] = 1
-data.loc[data['whoAmI'] == 'robot', 'robot'] = 0
-print(data)
-
+# one hot without dummies:
+data_unitary = pd.DataFrame({'robot': [1 if i == 'robot' else 0 for i in lst],
+'human': [1 if j == 'human' else 0 for j in lst]})
+print(data_unitary)
 
 # 0 & 1 in one column:
 data = pd.DataFrame({'whoAmI':lst})
